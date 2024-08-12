@@ -1,9 +1,4 @@
-.login{
-  margin-top:50px;
-  margin-left:40px;
-  padding: 50px;
-  position: relative;
-}
+
 .homeimg{
   padding:20px 0px;
 }
@@ -18,10 +13,10 @@
   margin-top: 20px;
 }
 .right-side{
-  padding-top:70px;
+  padding-top:45px;
 }
 .forget{
-  padding-right:220px;
+  padding-right:200px;
 }
 .social-media img{
    margin:20px 5px;
@@ -41,5 +36,7 @@ h1{
 }
 .regi{
   text-decoration: none;
-
+}
+.register{
+  padding-top:40px
 }

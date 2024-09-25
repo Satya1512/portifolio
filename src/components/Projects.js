@@ -30,11 +30,18 @@ const Projects = () => {
           <ProjectTitle>{project.name}</ProjectTitle>
           <p>{project.description}</p>
           <p><strong>Technologies Used:</strong> {project.technologies}</p>
-          {project.link && (
-            <a href={project.link} target="_blank" rel="noopener noreferrer">
-              View Project
-            </a>
-          )}
+          <div>
+            {project.link && (
+              <a href={project.link} target="_blank" rel="noopener noreferrer">
+                View Project
+              </a>
+            )}
+            {project.videoLink && (
+              <a href={project.videoLink} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '1rem' }}>
+                Watch Video
+              </a>
+            )}
+          </div>
         </ProjectCard>
       ))}
     </ProjectsSection>

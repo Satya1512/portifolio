@@ -4,10 +4,10 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import About from "./components/About";
-import Register from "./components/Register";
 import Projects from "./components/Projects";
-import Login from "./components/Login";
+import Contact from "./components/Contact";
 import GlobalStyles from "./components/styles/GlobalStyle";
+import Resume from './components/Resume';
 
 function App() {
   return (
@@ -17,9 +17,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/resume" element={<Resume />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </Router>

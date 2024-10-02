@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './index.css';
-import twitImg from "./images/twitter.png";
 import fbImg from "./images/fb1.png";
 import instaImg from "./images/instagram.png";
+import twitImg from "./images/twitter.png";
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -19,28 +19,32 @@ function Contact() {
         });
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setStatus('Submitting...');
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const contactInfo = {
+            name: formData.name,
+            email: formData.email,
+            message: formData.message // Ensure 'message' field is used here
+        };
 
         try {
-            const response = await fetch('http://localhost:3000/contact', { // Update to match your server URL
+            const response = await fetch('/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(contactInfo),
             });
 
             if (response.ok) {
-                setStatus('Contact information saved successfully!');
+                setStatus('Your message has been sent successfully.');
                 setFormData({ name: '', email: '', message: '' });
             } else {
-                const errorData = await response.json();
-                setStatus('Failed to save contact information: ' + errorData.error);
+                setStatus('Failed to send the message. Please try again.');
             }
         } catch (error) {
-            setStatus('Error: ' + error.message);
+            console.error('Error:', error);
+            setStatus('An error occurred. Please try again later.');
         }
     };
 

@@ -3,12 +3,23 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv').config();
+const path = require('path');
+
+// Serve static assets if in production
+if (process.env.NODE_ENV === 'production') {
+    // Set static folder
+    app.use(express.static('client/build'));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
 
 const app = express();
 
 // Middleware
 app.use(cors({
-    origin: 'http://localhost:5000', // Your frontend URL
+    origin: 'http://localhost:3000', // Updated for React frontend on port 3000
 }));
 app.use(bodyParser.json());
 
@@ -41,11 +52,11 @@ app.post('/contact', async (req, res) => {
         await newContact.save();
         res.status(201).json({ message: 'Contact information saved successfully' });
     } catch (error) {
-        console.error('Error saving contact information:', error);
-        res.status(500).json({ error: 'Failed to save contact information' });
+        console.error('Error saving contact information:', error.message, error.stack);
+        res.status(500).json({ error: 'Failed to save contact information', details: error.message });
     }
 });
 
 // Start the server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

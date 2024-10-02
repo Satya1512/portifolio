@@ -110,7 +110,6 @@ h1{
   text-align: center;
   padding-top: 100px;
 }
-
 .resume-download-btn {
   display: inline-block;
   margin-top: 20px;
@@ -124,5 +123,64 @@ h1{
 }
 
 .resume-download-btn:hover {
-  background-color: #45a049;
+  background-color: #4845a0;
+  transform: scale(1.05);
+}
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 3rem;
+  background: linear-gradient(140deg, black, gray);
+
+}
+
+.about-section {
+  flex: 1;
+  padding-left: 2rem;
+}
+
+.self-photo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.photo {
+  max-width: 100%;
+  height: 300px;
+  padding-top: 0px;
+  border-radius: 10px;
+}
+
+.about-text {
+  max-width: 700px;
+  margin: 0;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  background: linear-gradient(140deg, black, gray);
+  color: white
+}
+
+.heading {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.paragraph {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.highlight {
+  color: #7bff57;
+  font-weight: bold;
+}
+.Titile{
+  padding-bottom:20px
 }
